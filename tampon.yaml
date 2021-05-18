@@ -1,0 +1,34 @@
+#Metodo tampon.
+#slots:
+ #   -tamp
+
+#dbs:
+ #   main: import_csv Dtampon.csv
+
+strategies:
+    abundante:
+        - say "abundante"
+    moderado:
+        - say "moderado"
+    perdidas:
+        - say "Intenta no usar tampones super absorventes"
+        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
+        #-input timeP
+        #-ALARMA
+    tamp:
+        - say "¿Cómo es tu flujo?(tampon)"
+        - input status | asign abundante:abu moderado:mod perdidas:perd
+        - if status == "abu" then solve abundante
+        - if status == "mod" then solve moderado
+        - if status == "perd" then solve perdidas
+        - say "recuerda cambiar tu tampon cada 4 horas"
+    sst:
+      #  -say "El {} {}".format(*db['main'][0])
+      - say "En un otro momento te diré."
+
+script:
+    - say "Recuerda que los tampones no deben ser utilizados más de 8 horas debido al riesgo de padecer 'sindrome de shock tóxico' (sst)."
+    - say "¿Sabes que es el 'sindrome de shock tóxico' (sst)."
+    - input status | asign si:yes no:not
+    - if status == "yes" then say "Yo también."
+    - if status == "not" then solve sst

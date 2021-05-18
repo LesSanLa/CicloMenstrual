@@ -1,0 +1,27 @@
+#Metodos.
+
+
+
+#slots:
+ #   - other
+
+strategies:
+    other:
+        #-input other
+        #-remember other
+        - say "No tengo información sobre ese"
+
+script:
+    - say "¿Qué método usas?"
+    - say 'Escoge alguna opción'
+    - say "1. Copa menstrual."
+    - say "2. Toalla ecologica."
+    - say "3. Toalla desechable."
+    - say "4. Tampon."
+    - say "5. Otro, escribelo por favor."
+    - input status | asign copa:copa ecologica:toaEcolo desechable:toades tampon:tampo otro:otre
+    - if status == "copa" then solve copaM
+    - if status == "toaEcolo" then solve tEcolo
+    - if status == "toades" then solve toallaD
+    - if status == "tampo" then solve tampon
+    - if status == "otre" then solve other

@@ -1,0 +1,19 @@
+#Metodo Toalla Desechable.
+
+strategies:
+    abundante:
+        - say "holi abundante"
+    moderado:
+        - say "holi moderado"
+    perdidas:
+        - say "holi perdidas"
+    toad:
+        - say "¿Cómo es tu flujo?(toallad)"
+        - input status | asign abundante:abu moderado:mod perdidas:perd
+        - if status == "abu" then solve abundante
+        - if status == "mod" then solve moderado
+        - if status == "perd" then solve perdidas
+
+script:
+    - solve toad
+    - say "recuerda cambiar tu toalla cada 4 horas"

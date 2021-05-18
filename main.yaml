@@ -1,0 +1,43 @@
+# Conversation example for simple hello and ask a name
+
+settings:
+    name: ROBOT
+
+conversations:
+    - 'hello.yaml'
+    - 'metodos.yaml'
+    - 'toallaD.yaml'
+    - 'tampon.yaml'
+    - 'copaM.yaml'
+    - 'tEcolo.yaml'
+
+slots:
+    - name
+    - duraDia
+    #- diaP
+
+strategies:
+    name:
+        - say "¿cúal es tu nombre?"
+        - input name
+        - remember name
+        - say "mucho gusto en conocerte"
+    duraDia:
+        - say "¿Cuantos días dura tu periodo?"
+        - input duraDia.
+        - remember duraDia
+
+    nperiodo:
+        - say "vuelva otro día cuando ya esté"
+
+script:
+    - solve hello
+    - say greeting
+    - loop_slots #que informacion se tiene y cual no.
+    - say "¿Estás menstruando?"
+    - input status | asign si:yes no:no
+    - if status == "yes" then solve metodos
+    - if status == "no" then solve nperiodo
+
+    #execute, ejecuta un archivo de python
+    #plugin para conectar, 
