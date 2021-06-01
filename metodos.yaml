@@ -14,11 +14,11 @@ strategies:
 script:
     - say "¿Qué método usas?"
     - say 'Escoge alguna opción'
-    - say "1. Copa menstrual."
-    - say "2. Toalla ecologica."
-    - say "3. Toalla desechable."
-    - say "4. Tampon."
-    - say "5. Otro, escribelo por favor."
+    - say "-Copa menstrual."
+    - say "-Toalla ecologica."
+    - say "-Toalla desechable."
+    - say "-Tampon." #le quite los numeros para que se escriba el metodo y no el numero.
+    - say "-Otro, escribelo por favor."
     - input status | asign copa:copa ecologica:toaEcolo desechable:toades tampon:tampo otro:otre
     - if status == "copa" then solve copaM
     - if status == "toaEcolo" then solve tEcolo

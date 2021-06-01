@@ -13,7 +13,7 @@ conversations:
 
 slots:
     - name
-    - duraDia
+  #  - duraDia
     #- diaP
 
 strategies:
@@ -24,7 +24,7 @@ strategies:
         - say "mucho gusto en conocerte"
     duraDia:
         - say "¿Cuantos días dura tu periodo?"
-        - input duraDia.
+        - input duraDia
         - remember duraDia
 
     nperiodo:
@@ -33,6 +33,7 @@ strategies:
 script:
     - solve hello
     - say greeting
+    - add_slot duraDia #intenté agregar el slot desde el script. pero pasa lo mismo.
     - loop_slots #que informacion se tiene y cual no.
     - say "¿Estás menstruando?"
     - input status | asign si:yes no:no
