@@ -1,0 +1,14 @@
+slots:
+    - ppast
+strategies:
+    ppast:
+        - say "Dime la fecha de tus ultimos tres periodos de la siguiente manera dia,mes"
+        - input ppast1
+        - input ppast2
+        - input ppast3
+        - remember ppast1
+        - remember ppast2
+        - remember ppast3
+    # calendario dias anteriores
+script:
+    - solve ppast

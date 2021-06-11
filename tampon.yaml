@@ -1,34 +1,49 @@
 #Metodo tampon.
-#slots:
- #   -tamp
 
-#dbs:
- #   main: import_csv Dtampon.csv
+slots:
+    - abuTam
+    - modTam
+    - perdTam
+    - sst
+    - recomendations
+
+dbs:
+    main: import_csv Dtampon.csv
 
 strategies:
-    abundante:
-        - say "abundante"
-    moderado:
-        - say "moderado"
-    perdidas:
-        - say "Intenta no usar tampones super absorventes"
+    abuTam:
+        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando     el tampon?"
+        - input TabuTam
+    modTam:
+        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando     el tampon?"
+        - input TmodTam
+    perdTam:
+        - say "Si tu flujo es muy leve te recomiendo mejor usar to    allitas pequeñas."
         - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
-        #-input timeP
+        - input TperdTam
         #-ALARMA
-    tamp:
-        - say "¿Cómo es tu flujo?(tampon)"
-        - input status | asign abundante:abu moderado:mod perdidas:perd
-        - if status == "abu" then solve abundante
-        - if status == "mod" then solve moderado
-        - if status == "perd" then solve perdidas
-        - say "recuerda cambiar tu tampon cada 4 horas"
     sst:
-      #  -say "El {} {}".format(*db['main'][0])
-      - say "En un otro momento te diré."
+        - say "El {} {}".format(*db['main'][0])
+        - say "Los primeros casos estaban ligados al uso de tampones superabsorventes y su mal uso durante los periodos menstruales."
+        - say "Actualmente tenemos mejores tampones y hábitos de uso."
+    recomendations:
+        - solve recomTampon
+        - say greeting
 
 script:
-    - say "Recuerda que los tampones no deben ser utilizados más de 8 horas debido al riesgo de padecer 'sindrome de shock tóxico' (sst)."
+    - say "¿Cómo es tu flujo?"
+    - say "abundante."
+    - say "moderado."
+    - say "perdidas." 
+    - input status | asign abundante:abuTam moderado:modTam perdidas:perdTam  
+    - if status == "abuTam" then solve abuTam
+    - if status == "modTam" then solve modTam
+    - if status == "perdTam" then solve perdTam
+    - say "Recuerda que los tampones NO deben ser utilizados más de 8 horas." 
+    - say "Debido al riesgo de padecer 'sindrome de shock tóxico' (sst)."
     - say "¿Sabes que es el 'sindrome de shock tóxico' (sst)."
-    - input status | asign si:yes no:not
-    - if status == "yes" then say "Yo también."
-    - if status == "not" then solve sst
+    - input status | asign si:ysst no:nsst
+    - if status == "ysst" then say "Yo también."
+    - if status == "nsst" then solve sst
+    - say "Algunas recomendaciones con el uso de tampones son:"
+    - solve recomendations

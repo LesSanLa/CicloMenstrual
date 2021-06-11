@@ -1,0 +1,8 @@
+# Conversation tampon recomendation.
+
+plugins:
+    - random_recomendation_tampon
+
+script:
+    - set_slot options ["Como con cualquier producto que vaya dentro de la vagina recuerda darle un descanso a tu cuerpo.","Siempre lava tus manos antes de insertar un tampon"]
+    - random_recomendation_tampon.execute('greeting',options)

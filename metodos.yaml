@@ -9,7 +9,7 @@ strategies:
     other:
         #-input other
         #-remember other
-        - say "No tengo información sobre ese"
+        - say "No tengo información sobre {}".format(other)
 
 script:
     - say "¿Qué método usas?"

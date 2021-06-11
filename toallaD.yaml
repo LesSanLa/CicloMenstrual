@@ -1,19 +1,30 @@
 #Metodo Toalla Desechable.
 
+slots:
+    - toad
+    - abuD
+    - moD
+    - perD
 strategies:
-    abundante:
-        - say "holi abundante"
-    moderado:
-        - say "holi moderado"
-    perdidas:
-        - say "holi perdidas"
     toad:
-        - say "¿Cómo es tu flujo?(toallad)"
-        - input status | asign abundante:abu moderado:mod perdidas:perd
-        - if status == "abu" then solve abundante
-        - if status == "mod" then solve moderado
-        - if status == "perd" then solve perdidas
+        - say "¿Cómo es tu flujo?" 
+        - say "1.abundante."
+        - say "2.moderado."
+        - say "3.perdidas."
+        - say "Pon solo el número por favor."
+        - input status | asign 1:abuD 2:moD 3:perD
+        - if status == "abuD" then solve abuD
+        - if status == "moD" then solve moD 
+        - if status == "perD" then solve perD
+    abuD:
+        - say "si sales no olvides llevar toallas de repuesto"
+        - say "Programaré una alarma. ¿Cuánto llevas usando tu toalla?"
+    moD:
+        - say "recuerda cambiar tu toalla cada 4 horas"
+        - say "Programaré una alarma. ¿Cuánto llevas usando tu toalla?"
+    perD:
+        - say "recuerda no traer la misma toalla por más de 4 horas"
+        - say "Programaré una alarma. ¿Cuánto llevas usando tu toalla?"
 
 script:
     - solve toad
-    - say "recuerda cambiar tu toalla cada 4 horas"

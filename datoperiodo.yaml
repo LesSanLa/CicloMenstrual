@@ -1,0 +1,28 @@
+#Metodos.
+
+conversations:
+    - 'toallaD.yaml'
+    - 'tampon.yaml'
+    - 'copaM.yaml'
+    - 'tEcolo.yaml'
+
+slots:
+    - other
+strategies:
+    other:
+        - say "No tengo información sobre {}".format(other)
+
+script:
+    - say "¿Qué método usas?"
+    - say 'Escoge alguna opción'
+    - say "1. copa ecologica."
+    - say "2. Toalla ecologica."
+    - say "3. Toalla desechable."
+    - say "4. Tampon."
+    - say "5. Otro. Escribelo por favor."
+    - input status | asign copa:copaM toallaE:tEcolo toallaD:toad tampon:tamp otro:other
+    - if status == "copaM" then solve copaM
+    - if status == "tEcolo" then solve tEcolo
+    - if status == "toad" then solve toallaD
+    - if status == "tamp" then solve tampon
+    - if status == "other" then solve other
