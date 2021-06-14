@@ -1,9 +1,10 @@
 #Metodo tampon.
-
+plugins:
+    - horas_metodos
 slots:
-    - abuTam
-    - modTam
-    - perdTam
+    #- abuTam
+    #- modTam
+    #- perdTam
     - sst
     - recomendations
 
@@ -12,15 +13,18 @@ dbs:
 
 strategies:
     abuTam:
-        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando     el tampon?"
-        - input TabuTam
-    modTam:
-        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando     el tampon?"
-        - input TmodTam
-    perdTam:
-        - say "Si tu flujo es muy leve te recomiendo mejor usar to    allitas pequeñas."
         - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
-        - input TperdTam
+        - input abuTam
+        - horas_metodos.tampon(abuTam)
+    modTam:
+        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
+        - input modTam
+        - horas_metodos.tampon(modTam)
+    perdTam:
+        - say "Si tu flujo es muy leve te recomiendo mejor usar toallitas pequeñas."
+        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
+        - input perdTam
+        - horas_metodos.tampon(perdTam)
         #-ALARMA
     sst:
         - say "El {} {}".format(*db['main'][0])

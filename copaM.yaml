@@ -1,30 +1,33 @@
 # Conversación de Copa Menstrual.
 # Aún falta la alarma
 plugins:
-    - horas_copa
+    - horas_metodos
 
 strategies:
     abundanteC:
         - say "Debido a tu flujo deberas cambiar la copa cada 4 o 6 horas"
-        - say "¿Cuantas horas llevas usandola?"
+        - say "Programaré una alarma.¿Cuantas horas llevas usandola?"
         - input abundanteC
         - horas_copa.c_Abundante(abundanteC)
 
     medioC:
         - say "Debido a tu flujo deberas cambiar la copa cada 8 o 12 horas."
-        - say "¿Cuantas horas llevas usandola?"
+        - say "Programaré una alarma.¿Cuantas horas llevas usandola?"
         - input medioC
         - horas_copa.c_Medio(medioC)
 
     perdidasC:
         - say "Debido a tu flujo deberas cambiar la copa cada 12 horas."
         - say "A pesar de que no este llena, no puedes traer la copa puesta mas de 12hrs"
-        - say "¿Cuantas horas llevas usandola?"
+        - say "Programaré una alarma.¿Cuantas horas llevas usandola?"
         - input perdidasC
         - horas_copa.c_Perdidas(perdidasC)
 
 script:
     - say "¿Cómo es tu flujo el día de hoy?"
+    - say "abundante."
+    - say "moderado."
+    - say "perdidas."
     - input flujo | asign abundante:abu moderado:med perdidas:perd
     - if flujo == "abu" then solve abundanteC
     - if flujo == "med" then solve medioC

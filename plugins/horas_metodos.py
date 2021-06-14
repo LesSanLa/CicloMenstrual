@@ -7,7 +7,7 @@ def c_Abundante(*args):
     if (horas_camb <= 0):
     	return 'say "Estás en el límite, deberas cambiarla lo antes posible para evirar derrames"'
     if (horas_camb == 2):
-    	return 'say "Si es de las primeras veces que la usas, podrias cambiarla"'
+    	return 'say "podrias cambiarla ahora para sentirte más segura"'
     if (horas_camb >0):
         return 'say "En aproximadamente {} horas, deberás cambiarla"'.format(horas_camb)
 
@@ -29,3 +29,22 @@ def c_Perdidas (*args):
     	return 'say "Debes cambiarla lo antes posible, para evitar infecciones"'
     if (horas_camb > 0):
     	return 'say "Deberás cambiarla en {} hrs"'.format(horas_camb)
+#-----------------------------------------------------------------------------------------------------------------
+#horas para la toalla ecologica
+def toallaE(*args):
+    horas_us = int(args[0])
+    horas_camb = 4 - horas_us 
+    if (horas_camb <= 0):
+        return 'say "Cambia tu toalla lo antes posible, al ser ecologica no hay tanto riesgo de infección"'
+    if (horas_camb > 0):
+        return 'say "En aproximadamente {} hrs, deberás cambiarla"'.format(horas_camb)
+#-----------------------------------------------------------------------------------------------------------------
+#horas para tampon
+def tampon(*args):
+    horas_us = int(args[0])
+    horas_camb = 8 - horas_us
+    if (horas_camb <= 0):
+        return 'say "Debes cambiarla lo antes posible, para evitar infecciones"'
+    if (horas_camb > 0):
+        return 'say "En aproximadamente {} hrs, deberás cambiarlo"'.format(horas_camb)
+
