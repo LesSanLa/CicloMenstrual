@@ -13,16 +13,23 @@ dbs:
 
 strategies:
     abuTam:
-        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
+        - say "Para evitar derrames debes cambiar tu tampon máximo     en 4 horas."
+        - say "Programaré una alarma para que cambies tu tampon."
+        - say "Mi alarma está programada en tiempo=horas"
+        - say "¿Cuántas horas llevas usando el tampon? Pon solo el     número por favor."
         - input abuTam
         - horas_metodos.tampon(abuTam)
     modTam:
-        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
+        - say "Programaré una alarma para que te cambies el tampon    ."
+        - say "Mi alarma está programada en tiempo=horas"
+        - say "¿Cuántas horas llevas usando el tampon? Pon solo el     número por favor."
         - input modTam
         - horas_metodos.tampon(modTam)
     perdTam:
         - say "Si tu flujo es muy leve te recomiendo mejor usar toallitas pequeñas."
-        - say "Programaré una alarma. ¿Cuánto tiempo llevas usando el tampon?"
+        - say "Programaré una alarma para avisarte de cambiar tu tampon."
+        - say "Mi alarma está programada en tiempo=horas"
+        - say "¿Cuántas horas llevas usando el tampon? Pon solo el número por favor."
         - input perdTam
         - horas_metodos.tampon(perdTam)
         #-ALARMA
