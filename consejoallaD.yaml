@@ -1,0 +1,8 @@
+# Random de despedida Toalla desechable
+
+plugins:
+    - random_consejos_toallaD
+
+script:
+    - set_slot options ["Cuidate mucho.","Haz ejercicio."]
+    - random_greeting.execute('greeting',options)

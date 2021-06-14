@@ -1,10 +1,15 @@
 #Metodo Toalla Desechable.
 
+plugins:
+    - horas_toaD
+    
 slots:
     - toad
     - abuD
     - moD
     - perD
+    - consejos
+
 strategies:
     toad:
         - say "¿Cómo es tu flujo?" 
@@ -17,14 +22,31 @@ strategies:
         - if status == "moD" then solve moD 
         - if status == "perD" then solve perD
     abuD:
-        - say "si sales no olvides llevar toallas de repuesto"
-        - say "Programaré una alarma. ¿Cuánto llevas usando tu toalla?"
+        - say "si sales no olvides llevar toallas de repuesto" 
+        - say "Programaré una alarma para que cambies tu toalla."
+        - say "Mi alarma está programada en tiempo=horas"
+        - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
+        - input TabuD
+        - horas_toaD.D_Abundante(TabuD)
+        - say "Recuerda checar tu toalla si te sientes muy humeda para evitar accidentes"
     moD:
         - say "recuerda cambiar tu toalla cada 4 horas"
-        - say "Programaré una alarma. ¿Cuánto llevas usando tu toalla?"
+        - say "Programaré una alarma para que cambies tu toalla."
+        - say "Mi alarma está programada en tiempo=horas"
+        - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
+        - input TmoD
+        - horas_toaD.D_Moderado(TmoD)
     perD:
         - say "recuerda no traer la misma toalla por más de 4 horas"
-        - say "Programaré una alarma. ¿Cuánto llevas usando tu toalla?"
-
+        - say "Programaré una alarma para que cambies tu toalla."
+        - say "Mi alarma está programada en tiempo=horas"
+        - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
+        - input TperD
+        - horas_toaD.D_Perdidas(TperD)
+    consejos:
+        - solve consejoallaD
+        - say greeting
 script:
     - solve toad
+    - solve consejos
+
