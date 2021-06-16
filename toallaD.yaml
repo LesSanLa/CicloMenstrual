@@ -1,14 +1,14 @@
 #Metodo Toalla Desechable.
 
 plugins:
-    - horas_toaD
+    - horas_metodos
     
-slots:
-    - toad
-    - abuD
-    - moD
-    - perD
-    - consejos
+#slots:
+   # - toad
+    #- abuD
+    #- moD
+    #- perD
+  #  - consejos
 
 strategies:
     toad:
@@ -26,27 +26,27 @@ strategies:
         - say "Programaré una alarma para que cambies tu toalla."
         - say "Mi alarma está programada en tiempo=horas"
         - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
-        - input TabuD
-        - horas_toaD.D_Abundante(TabuD)
+        - input abuD
+        - horas_metodos.D_Abundante(abuD)
         - say "Recuerda checar tu toalla si te sientes muy humeda para evitar accidentes"
     moD:
         - say "recuerda cambiar tu toalla cada 4 horas"
         - say "Programaré una alarma para que cambies tu toalla."
         - say "Mi alarma está programada en tiempo=horas"
         - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
-        - input TmoD
-        - horas_toaD.D_Moderado(TmoD)
+        - input moD
+        - horas_metodos.D_Moderado(moD)
     perD:
         - say "recuerda no traer la misma toalla por más de 4 horas"
         - say "Programaré una alarma para que cambies tu toalla."
         - say "Mi alarma está programada en tiempo=horas"
         - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
-        - input TperD
-        - horas_toaD.D_Perdidas(TperD)
-    consejos:
-        - solve consejoallaD
-        - say greeting
+        - input perD
+        - horas_metodos.D_Perdidas(perD)
+    #consejos:
+     #  - solve consejoallaD
+      # - say greeting
 script:
     - solve toad
-    - solve consejos
+   # - solve consejos
 

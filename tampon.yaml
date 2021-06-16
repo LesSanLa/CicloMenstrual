@@ -18,20 +18,20 @@ strategies:
         - say "Mi alarma está programada en tiempo=horas"
         - say "¿Cuántas horas llevas usando el tampon? Pon solo el     número por favor."
         - input abuTam
-        - horas_metodos.tampon(abuTam)
+        - horas_metodos.tam_Abundante(abuTam)
     modTam:
         - say "Programaré una alarma para que te cambies el tampon    ."
         - say "Mi alarma está programada en tiempo=horas"
         - say "¿Cuántas horas llevas usando el tampon? Pon solo el     número por favor."
         - input modTam
-        - horas_metodos.tampon(modTam)
+        - horas_metodos.tam_Moderado(modTam)
     perdTam:
         - say "Si tu flujo es muy leve te recomiendo mejor usar toallitas pequeñas."
         - say "Programaré una alarma para avisarte de cambiar tu tampon."
         - say "Mi alarma está programada en tiempo=horas"
         - say "¿Cuántas horas llevas usando el tampon? Pon solo el número por favor."
         - input perdTam
-        - horas_metodos.tampon(perdTam)
+        - horas_metodos.tam_Perdidas(perdTam)
         #-ALARMA
     sst:
         - say "El {} {}".format(*db['main'][0])
