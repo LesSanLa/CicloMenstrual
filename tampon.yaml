@@ -1,12 +1,7 @@
 #Metodo tampon.
 plugins:
     - horas_metodos
-slots:
-    #- abuTam
-    #- modTam
-    #- perdTam
-    - sst
-    - recomendations
+#slots:
 
 dbs:
     main: import_csv Dtampon.csv
