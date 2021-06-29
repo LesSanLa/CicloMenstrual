@@ -1,0 +1,56 @@
+#MAIN GRANDOTE
+
+settings:
+    name: Amalia
+
+conversations:
+    - 'Metodos/hello.yaml'
+    - 'Metodos/main.yaml'
+    - 'Metodos/metodos.yaml'
+    - 'Metodos/copaM.yaml'
+    - 'Metodos/tEcolo.yaml'
+    - 'Metodos/toallaD.yaml'
+    - 'Metodos/tampon.yaml'
+    - 'Malestar/malestar.yaml'
+    - 'PPast/ppast.yaml'
+
+slots:
+    - name
+
+strategies:
+    name:
+        - say "¿cúal es tu nombre?"
+        - input name
+        - remember name
+        - say "mucho gusto en conocerte"
+    metHab:
+#Preguntar metodo habitual
+    duraP:
+#Duracion del periodo
+    duraC:
+#duracion del ciclo
+    seguimientoDePeriodo:
+#fecha del ultimo periodo
+### HACER DICCIONARIO CO ESTOS DATOS
+    informaciónYrecomendaciones:
+        - say "¡eeehhh! entraste a informacionYrecomendaciones."
+
+script:
+    - solve hello
+    - say greeting
+#    - loop_slots
+    - say "Que te interesa ver hoy {}".format(name)
+    - say "¿Registrar el metodo que usas?"
+    - input ans1
+    - if ans1 == "si" then solve metodos
+    - if ans1 == "no" then say "Información y recomendaciones sobre tu periodo."
+    - input ans2
+    - if status in ("si", "Si", "sí", "Sí") then solve informacionYrecomendaciones
+    - if status in ("no", "No") then say "Malestar."
+#    - input ans3
+#    - if status in ("si", "Si", "sí", "Sí") then solve malestar
+#    - if status in ("no", "No") then say "Agendar tus periodos pasados."
+#    - input ans4
+#    - if status in ("si", "Si", "sí", "Sí") then solve ppast
+#    - if status in ("no", "No") then say "Me dio gusto saludarte, haz ejercicio. Adios {}".format(name)
+    - say "adios {}".format(name)

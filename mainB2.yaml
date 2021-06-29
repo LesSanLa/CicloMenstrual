@@ -1,0 +1,53 @@
+#MAIN GRANDOTE
+
+settings:
+    name: Amalia
+
+conversations:
+    - 'Metodos/hello.yaml'
+    - 'Metodos/main.yaml'
+    - 'Metodos/metodos.yaml'
+    - 'Metodos/copaM.yaml'
+    - 'Metodos/tEcolo.yaml'
+    - 'Metodos/toallaD.yaml'
+    - 'Metodos/tampon.yaml'
+    - 'Malestar/malestar.yaml'
+    - 'PPast/ppast.yaml'
+
+slots:
+    - name
+
+strategies:
+    name:
+        - say "¿cúal es tu nombre?"
+        - input name
+        - remember name
+        - say "mucho gusto en conocerte"
+    metHab:
+#Preguntar metodo habitual
+    duraP:
+#Duracion del periodo
+    duraC:
+#duracion del ciclo
+    seguimientoDePeriodo:
+#fecha del ultimo periodo
+### HACER DICCIONARIO CO ESTOS DATOS
+    informacionYrecomendaciones:
+        - say "¡eeehhh! entraste a informacionYrecomendaciones."
+
+script:
+    - solve hello
+    - say greeting
+#    - loop_slots
+    - say "Que te interesa ver hoy {}".format(name)
+    - say "¿Registrar el metodo que usas?"
+    - say "Información y recomendaciones sobre tu periodo."
+    - say "Malestar."
+    - say "Agendar tus periodos pasados."
+    - input status | registrar:met informacion:info recomendacones:info malestar:mal agendar:agendar
+    - if status == "met" then solve metodos
+    - if status == "info" then solve informacionYrecomendaciones
+    - if status == "mal" then solve malestar
+    - if status == "agendar" then solve ppast
+    - say "adios {}".format(name)
+
