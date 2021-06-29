@@ -1,32 +1,45 @@
 # Conversación de Toalla ecologica.
 plugins:
     - horas_metodos
+    - Retardo
 
 strategies:
     abundantet:
         - say "Procura utilizar una toalla de 28 cm de largo aproximadamente."
         #- say "Se debe cambiar cada 4 horas para evitar infecciones."
-        - say "Programaré una alarma. ¿Cuantas horas llevas usandola?"
+        - Retardo.retardom()
+        - say "Programaré una alarma para que cambies tu toalla.""
+        - Retardo.retardom()
+        - say "Mi alarma está programada en tiempo=horas ¿Cuantas horas llevas usandola?"
         - input abundantet
         - horas_metodos.toallaE(abundantet)
     mediot:
         - say "Procura utilizar una toalla de 23 cm de largo aproximadamente."
         #- say "Se debe cambiar cada 4 horas para evitar infecciones."
-        - say "Programaré una alarma. ¿Cuantas horas llevas usandola?"
+        - Retardo.retardom()
+        - say "Programaré una alarma para que cambies tu toalla.""
+        - Retardo.retardom()
+        - say "Mi alarma está programada en tiempo=horas ¿Cuantas horas llevas usandola?"
         - input mediot
         - horas_metodos.toallaE(mediot)
     perdidast:
         - say "Procura utilizar una toalla de 18 cm (o menos) de largo aproximadamente."
        # - say "Se debe cambiar cada 4 horas para evitar infecciones."
-        - say "Programaré una alarma. ¿Cuantas horas llevas usandola?"
+        - Retardo.retardom()
+        - say "Programaré una alarma para que cambies tu toalla.""
+        - Retardo.retardom()
+        - say "Mi alarma está programada en tiempo=horas ¿Cuantas horas llevas usandola?"
         - input perdidast
         - horas_metodos.toallaE(perdidast)
 
 
 script:
     - say "¿Cómo es tu flujo el día de hoy?"
+    - Retardo.retardom()
     - say "abundante."
+    - Retardo.retardom()
     - say "moderado."
+    - Retardo.retardom()
     - say "perdidas."
     - input flujo | asign abundante:abu moderado:med perdidas:perd
     - if flujo == "abu" then solve abundantet

@@ -1,6 +1,7 @@
 #Metodo tampon.
 plugins:
     - horas_metodos
+    - Retardo
 #slots:
 
 dbs:
@@ -8,22 +9,30 @@ dbs:
 
 strategies:
     abuTam:
-        - say "Para evitar derrames debes cambiar tu tampon máximo     en 4 horas."
+        - say "Para evitar derrames debes cambiar tu tampon máximo en 4 horas."
+        - Retardo.retardob()
         - say "Programaré una alarma para que cambies tu tampon."
+        - Retardo.retardob()
         - say "Mi alarma está programada en tiempo=horas"
-        - say "¿Cuántas horas llevas usando el tampon? Pon solo el     número por favor."
+        - Retardo.retardom()
+        - say "¿Cuántas horas llevas usando el tampon? Pon solo el número por favor."
         - input abuTam
         - horas_metodos.tam_Abundante(abuTam)
     modTam:
-        - say "Programaré una alarma para que te cambies el tampon    ."
+        - say "Programaré una alarma para que te cambies el tampon."
+        - Retardo.retardom()
         - say "Mi alarma está programada en tiempo=horas"
-        - say "¿Cuántas horas llevas usando el tampon? Pon solo el     número por favor."
+        - Retardo.retardom()
+        - say "¿Cuántas horas llevas usando el tampon? Pon solo el número por favor."
         - input modTam
         - horas_metodos.tam_Moderado(modTam)
     perdTam:
         - say "Si tu flujo es muy leve te recomiendo mejor usar toallitas pequeñas."
+        - Retardo.retardom()
         - say "Programaré una alarma para avisarte de cambiar tu tampon."
+        - Retardo.retardom()
         - say "Mi alarma está programada en tiempo=horas"
+        - Retardo.retardom()
         - say "¿Cuántas horas llevas usando el tampon? Pon solo el número por favor."
         - input perdTam
         - horas_metodos.tam_Perdidas(perdTam)
@@ -39,14 +48,18 @@ strategies:
 script:
     - say "¿Cómo es tu flujo?"
     - say "abundante."
+    - Retardo.retardom()
     - say "moderado."
+    - Retardo.retardom()
     - say "perdidas." 
     - input status | asign abundante:abuTam moderado:modTam perdidas:perdTam  
     - if status == "abuTam" then solve abuTam
     - if status == "modTam" then solve modTam
     - if status == "perdTam" then solve perdTam
     - say "Recuerda que los tampones NO deben ser utilizados más de 8 horas." 
+    - Retardo.retardob()
     - say "Debido al riesgo de padecer 'sindrome de shock tóxico' (sst)."
+    - Retardo.retardob()
     - say "¿Sabes que es el 'sindrome de shock tóxico' (sst)."
     - input status | asign si:ysst no:nsst
     - if status == "ysst" then say "Yo también."
