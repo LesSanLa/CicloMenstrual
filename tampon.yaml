@@ -4,8 +4,8 @@ plugins:
     - Retardo
 #slots:
 
-dbs:
-    main: import_csv Dtampon.csv
+#dbs:
+#    main: import_csv Dtampon.csv
 
 strategies:
     abuTam:
@@ -41,9 +41,9 @@ strategies:
         - say "El {} {}".format(*db['main'][0])
         - say "Los primeros casos estaban ligados al uso de tampones superabsorventes y su mal uso durante los periodos menstruales."
         - say "Actualmente tenemos mejores tampones y hábitos de uso."
-    recomendations:
-        - solve recomTampon
-        - say greeting
+#    recomendations:
+#        - solve recomTampon
+#        - say greeting
 
 script:
     - say "¿Cómo es tu flujo?"
@@ -64,5 +64,5 @@ script:
     - input status | asign si:ysst no:nsst
     - if status == "ysst" then say "Yo también."
     - if status == "nsst" then solve sst
-    - say "Algunas recomendaciones con el uso de tampones son:"
-    - solve recomendations
+#    - say "Algunas recomendaciones con el uso de tampones son:"
+#    - solve recomendations
