@@ -36,6 +36,7 @@ strategies:
 
 script:
     - say "¿Cómo es tu flujo el día de hoy?"
+    - Retardo.retardom()
     - say "abundante."
     - Retardo.retardom()
     - say "moderado."
