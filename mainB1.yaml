@@ -10,8 +10,8 @@ conversations:
     - 'Metodos/tEcolo.yaml'
     - 'Metodos/toallaD.yaml'
     - 'Metodos/tampon.yaml'
-    - 'Malestar/malestar.yaml'
-    - 'PPast/ppast.yaml'
+  #  - 'Malestar/malestar.yaml'
+    #- 'PPast/ppast.yaml'
 
 slots:
     - name

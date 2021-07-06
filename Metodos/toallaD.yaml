@@ -1,0 +1,62 @@
+#Metodo Toalla Desechable.
+
+plugins:
+    - horas_metodos
+    - Retardo
+    
+#slots:
+
+strategies:
+    abuD:
+        - say "si sales no olvides llevar toallas de repuesto"
+        - Retardo.retardob() 
+        - say "Programaré una alarma para que cambies tu toalla."
+        - Retardo.retardob()
+        - say "Mi alarma está programada en tiempo=horas"
+        - Retardo.retardob()
+        - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
+        - input abuD
+        - horas_metodos.D_Abundante(abuD)
+        - say "Recuerda checar tu toalla si te sientes muy humeda para evitar accidentes"
+    moD:
+        - say "recuerda cambiar tu toalla cada 4 horas"
+        - Retardo.retardob()
+        - say "Programaré una alarma para que cambies tu toalla."
+        - Retardo.retardob()
+        - say "Mi alarma está programada en tiempo=horas"
+        - Retardo.retardob()
+        - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
+        - input moD
+        - horas_metodos.D_Moderado(moD)
+    perD:
+        - say "recuerda no traer la misma toalla por más de 4 horas"
+        - say "Programaré una alarma para que cambies tu toalla."
+        - Retardo.retardob()
+        - say "Mi alarma está programada en tiempo=horas"
+        - Retardo.retardob()
+        - say "¿Cuántas horas llevas usando tu toalla? Pon solo el número por favor."
+        - input perD
+        - horas_metodos.D_Perdidas(perD)
+    #consejos:
+     #  - solve consejoallaD
+      # - say greeting
+script:
+        - say "¿Cómo es tu flujo?"
+        - Retardo.retardob()
+        - say "1.abundante."
+        - Retardo.retardob()
+        - say "2.moderado."
+        - Retardo.retardob()
+        - say "3.perdidas."
+        - Retardo.retardob()
+        - say "Pon solo el número por favor."
+        - input status | asign 1:abuD 2:moD 3:perD
+        - if status == "abuD" then solve abuD
+        - if status == "moD" then solve moD 
+        - if status == "perD" then solve perD
+#        - say "¿Quieres que te diga dos cosejos sobre el uso de toallas desechables?"
+#        - input status | asign si:si_quiero no:no_quiero
+#        - if status == "si_quiero" then solve consejo
+
+
+

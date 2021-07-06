@@ -1,4 +1,4 @@
-#MAIN GRANDOTE opción 2
+#MAIN GRANDOTE opción 3
 
 settings:
     name: Amalia
@@ -10,8 +10,10 @@ conversations:
     - 'Metodos/tEcolo.yaml'
     - 'Metodos/toallaD.yaml'
     - 'Metodos/tampon.yaml'
-  # - 'Malestar/malestar.yaml'
+  # - 'Malestar/malestar.yaml'#están comentados porque malestar no está en el yaml
    # - 'PPast/ppast.yaml'
+plugins:
+    - Retardo
 
 slots:
     - name
@@ -43,30 +45,39 @@ strategies:
 #        - input durac
 #        - remeber durac
 #        - if a == "no" then say "No te preocupes lo iré calculando."
+#metodos provicionales 
     seguimientoDePeriodo:
 #fecha del ultimo periodo
+        - say "Sección de fechas para de ultimo periodo"
     informacionYrecomendaciones:
         - say "¡eeehhh! entraste a informacionYrecomendaciones."
+    Malestar:
+        - say "seccion de malestares"
+    retraso: 
+        - say "sección sobre el retraso de periodo"
 
 script:
     - solve hello
     - say greeting
     - loop_slots
+    - say "  "
+    - say "--------------MENÚ PRINCIPAL--------------"
+    - say "  "
     - say "Te enlistaré las opciones que tengo para el seguimiento de tu periodo. Escoge la opcion a la que quieras entrar."
-    - say "Quieres registrar una alarma para el metodo que usas {}".format(name)
-    - say "¿Te sientes malita?"
-    - say "¿Quieres agendar tus periodos pasados?"
-    - say "Quieres que te diga la información y recomendaciones que se sobre el ciclo menstrual {}".format(name)
-    - input ans | asign alarma:met mal:male agendar:agendar informacion:info
-    - if ans == "met" then solve metodos
-    - if ans == "male" then solve malestar
-    - if ans == "agendar" then solve ppast
-    - if ans == "info" then solve informacionYrecomendaciones
-    - say "¿Quieres checar otra opción?"
-    - input ans0 | asign si:yes no:not
-    - if ans0 == "yes" then say "¿Cuál?"
-#    - input
-# FALTARÍA AGREGAR MAS OPCIONES
-    - if ans0 == "not" then say "Me dio gusto saludarte, recuerda hacer ejercicio."
-    - say "Adios {}".format(name)
-
+    - Retardo.retardom()
+    - say "1.- Seguimiento de ciclo menstrual."
+    - Retardo.retardom()
+    - say "2.- Malestares, SPM o durante el periodo."
+    - Retardo.retardom()
+    - say "3.- Información sobre el ciclo mentrual y recomendaciones."
+    - Retardo.retardom()
+    - say "4.- Información sobre retraso del periodo."
+    - Retardo.retardom()
+    - say "5.- Registrar periodos pasados (temporal)." #temporal porque se debe preguntar en un inicio,
+    #Prueba para que escoja alguna opción
+    - input menu | asign 1:uno seguimiento:uno 2:dos malestar:dos 3:tres Información:tres 4:cuatro retraso:cuatro 5:cinco Registrar:cinco
+    - if menu == "uno" then solve metodos
+    - if menu == "dos" then solve Malestar
+    - if menu == "tres" then solve informacionYrecomendaciones
+    - if menu == "cuatro" then solve retraso
+    - if menu == "cinco" then solve seguimientoDePeriodo
