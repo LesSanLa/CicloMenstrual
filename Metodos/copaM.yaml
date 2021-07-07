@@ -3,7 +3,7 @@
 plugins:
     - horas_metodos
     - Retardo
-
+    - limpiar_pantalla
 strategies:
     abundanteC:
         - say "Debido a tu flujo deberas cambiar la copa cada 4 o 6 horas"
@@ -35,7 +35,8 @@ strategies:
         - horas_metodos.c_Perdidas(perdidasC)
 
 script:
-    - say "¿Cómo es tu flujo el día de hoy?"
+    - limpiar_pantalla.limpiarP()
+    - say "¿Cómo es tu flujo el día de hoy {}?".format(name)
     - Retardo.retardom()
     - say "abundante."
     - Retardo.retardom()
