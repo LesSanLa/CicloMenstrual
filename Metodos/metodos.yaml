@@ -2,28 +2,39 @@
 plugins:
     - Retardo
 strategies:
-    
+
+    metodoHabitual:
+        - say "aún no está :C"
+
+    cambioMetodo: #estrategia para que la ususaria pueda poner una alarma diferente
+        - say "¿Qué método estas usando hoy?"
+        - say 'Escoge alguna opción'
+        - say "-Copa menstrual."
+        - Retardo.retardob()
+        - say "-Toalla ecologica."
+        - Retardo.retardob()
+        - say "-Toalla desechable."
+        - Retardo.retardob()
+        - say "-Tampon." #le quite los numeros para que se escriba el metodo y no el numero.
+        - Retardo.retardob()
+        - say "-Otro, escribelo por favor."
+        - input status | asign copa:copa ecologica:toaEcolo desechable:toades tampon:tampo otro:otre
+        - if status == "copa" then solve copaM
+        - if status == "toaEcolo" then solve tEcolo
+        - if status == "toades" then solve toallaD
+        - if status == "tampo" then solve tampon
+        - if status == "otre" then solve other
+        - loop_slots
     other:
         #-input other
         #-remember other
         - say "No tengo información sobre {}".format(other)
 
 script:
-    - say "¿Qué método usas?"
-    - say 'Escoge alguna opción'
-    - say "-Copa menstrual."
-    - Retardo.retardob()
-    - say "-Toalla ecologica."
-    - Retardo.retardob()
-    - say "-Toalla desechable."
-    - Retardo.retardob()
-    - say "-Tampon." #le quite los numeros para que se escriba el metodo y no el numero.
-    - Retardo.retardob()
-    - say "-Otro, escribelo por favor."
-    - input status | asign copa:copa ecologica:toaEcolo desechable:toades tampon:tampo otro:otre
-    - if status == "copa" then solve copaM
-    - if status == "toaEcolo" then solve tEcolo
-    - if status == "toades" then solve toallaD
-    - if status == "tampo" then solve tampon
-    - if status == "otre" then solve other
-    - loop_slots
+    #Aquí aun falta el poder saber si es el primer dia o empezó antes
+    - say "Gracias por ingresar, hemos guardado hoy como el inicio de tu periodo."
+    - Retardo.retardom()
+    - say "¿Estás usando tu metodo habitual?"
+    - input metHabi | asign si:sip no:nop
+    - if metHabi == "sip" then solve metodoHabitual
+    - if metHabi == "nop" then solve cambioMetodo

@@ -1,0 +1,36 @@
+#subMenú del seguimiento de ciclo menstrual.
+
+conversations:
+    - 'Metodos/hello.yaml'
+    - 'Metodos/metodos.yaml'
+    - 'Metodos/copaM.yaml'
+    - 'Metodos/tEcolo.yaml'
+    - 'Metodos/toallaD.yaml'
+    - 'Metodos/tampon.yaml'
+plugins:
+    - Retardo
+    - limpiar_pantalla
+strategies:
+    proximoDia:
+        - say "holi, aún no estan los dias proximos"
+    diasFertil:
+        - say "holi, aún no tenemos los días fertiles :C"
+script: 
+  - limpiar_pantalla.limpiarP()
+  - say "-----------Bienvenida al seguimiento del tu ciclo-----------"
+  - Retardo.retardom()
+  - say "Aquí hay algunas cosas que podemos hacer el día de hoy:"
+  - Retardo.retardom()
+  - say "1.- Registrar el comienzo de tu periodo y programar alarmas para el cambio de tu metodo"
+  - Retardo.retardom()
+  - say "2.- Consultar el proximo día en el que posiblemente llegue el periodo."
+  - Retardo.retardom()
+  - say "3.- Consultar los posibles días fertiles del ciclo." #este aún falta poder usar las fechas e investigación
+  - Retardo.retardom()
+  - input menuseg | asign 1:uno Registrar:uno 2:dos proximo:dos 3:tres fertiles:tres
+  - if menuseg == "uno" then solve metodos
+  - if menuseg == "dos" then solve proximoDia
+  - if menuseg == "tres" then solve diasFertil
+
+
+

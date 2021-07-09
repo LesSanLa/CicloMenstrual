@@ -10,6 +10,7 @@ conversations:
     - 'Metodos/tEcolo.yaml'
     - 'Metodos/toallaD.yaml'
     - 'Metodos/tampon.yaml'
+    - 'Seguimiento.yaml'
   # - 'Malestar/malestar.yaml'#están comentados porque malestar no está en el yaml
    # - 'PPast/ppast.yaml'
 plugins:
@@ -29,7 +30,16 @@ strategies:
         - say "mucho gusto en conocerte"
     metHab:
 #preguntar metodo habitual
-        - say "¿Cuál es tu metodo habitual?"
+        - say "¿Cuál es tu metodo habitual?,escribe alguno de los siguientes:"
+        #modifique aquí para que tenga las opciones que tenemos
+        - say "-Copa menstrual."
+        - Retardo.retardob()
+        - say "-Toalla ecologica."
+        - Retardo.retardob()
+        - say "-Toalla desechable."
+        - Retardo.retardob()
+        - say "-Tampon." 
+        - Retardo.retardob()
         - input metHab
         - remember metHab
         - say "Lo anotaré, tu metodo habitual es {}".format(metHab)
@@ -76,7 +86,7 @@ script:
     - say "5.- Registrar periodos pasados (temporal)." #temporal porque se debe preguntar en un inicio,
     #Prueba para que escoja alguna opción
     - input menu | asign 1:uno seguimiento:uno 2:dos malestar:dos 3:tres Información:tres 4:cuatro retraso:cuatro 5:cinco Registrar:cinco
-    - if menu == "uno" then solve metodos
+    - if menu == "uno" then solve Seguimiento
     - if menu == "dos" then solve Malestar
     - if menu == "tres" then solve informacionYrecomendaciones
     - if menu == "cuatro" then solve retraso
