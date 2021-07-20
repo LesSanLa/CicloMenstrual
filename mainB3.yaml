@@ -4,13 +4,13 @@ settings:
     name: Amalia
 
 conversations:
-    - 'Metodos/hello.yaml'
+    - 'hello.yaml'
     - 'Metodos/metodos.yaml'
     - 'Metodos/copaM.yaml'
     - 'Metodos/tEcolo.yaml'
     - 'Metodos/toallaD.yaml'
     - 'Metodos/tampon.yaml'
-    - 'Seguimiento.yaml'
+    - 'Seguimiento/Seguimiento.yaml'
   # - 'Malestar/malestar.yaml'#están comentados porque malestar no está en el yaml
    # - 'PPast/ppast.yaml'
 plugins:
@@ -68,11 +68,14 @@ strategies:
         - say "sección sobre el retraso de periodo"
 
 script:
+    - loop_slots
+    - limpiar_pantalla.limpiarP()
     - solve hello
     - say greeting
-    - loop_slots
+    - Retardo.retardom()
     - say "--------------MENÚ PRINCIPAL--------------"
     - say "Te enlistaré las opciones que tengo para el seguimiento de tu periodo."
+    - Retardo.retardom()
     - say "Por favor escoge la opcion a la que quieras entrar {}".format(name)
     - Retardo.retardom()
     - say "1.- Seguimiento de ciclo menstrual."

@@ -34,8 +34,6 @@ strategies:
         - say "No tengo información sobre {}".format(other)
 
 script:
-    #Aquí aun falta el poder saber si es el primer dia o empezó antes
-    - say "Gracias por ingresar, hemos guardado hoy como el inicio de tu periodo."
     - Retardo.retardom()
     - say "¿El día de hoy estas usando {}?".format(metHab)
     - input metHabi | asign si:sip no:nop

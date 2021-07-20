@@ -1,12 +1,5 @@
 #subMenú del seguimiento de ciclo menstrual.
 
-conversations:
-    - 'Metodos/hello.yaml'
-    - 'Metodos/metodos.yaml'
-    - 'Metodos/copaM.yaml'
-    - 'Metodos/tEcolo.yaml'
-    - 'Metodos/toallaD.yaml'
-    - 'Metodos/tampon.yaml'
 plugins:
     - Retardo
     - limpiar_pantalla
@@ -21,7 +14,8 @@ script:
   - Retardo.retardom()
   - say "Aquí hay algunas cosas que podemos hacer el día de hoy:"
   - Retardo.retardom()
-  - say "1.- Registrar el comienzo de tu periodo y programar alarmas para el cambio de tu metodo"
+  - say "1.- Registrar el comienzo de tu periodo."
+  - say "2.- Programar alarmas para el cambio de tu metodo"
   - Retardo.retardom()
   - say "2.- Consultar el proximo día en el que posiblemente llegue el periodo."
   - Retardo.retardom()
