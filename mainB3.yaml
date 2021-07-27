@@ -11,6 +11,7 @@ conversations:
     - 'Metodos/toallaD.yaml'
     - 'Metodos/tampon.yaml'
     - 'Seguimiento/Seguimiento.yaml'
+    - 'Seguimiento/Registo.yaml'
   # - 'Malestar/malestar.yaml'#están comentados porque malestar no está en el yaml
    # - 'PPast/ppast.yaml'
 plugins:

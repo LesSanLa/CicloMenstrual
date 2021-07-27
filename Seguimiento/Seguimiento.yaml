@@ -15,16 +15,18 @@ script:
   - say "Aquí hay algunas cosas que podemos hacer el día de hoy:"
   - Retardo.retardom()
   - say "1.- Registrar el comienzo de tu periodo."
+  - Retardo.retardom()
   - say "2.- Programar alarmas para el cambio de tu metodo"
   - Retardo.retardom()
-  - say "2.- Consultar el proximo día en el que posiblemente llegue el periodo."
+  - say "3.- Consultar el proximo día en el que posiblemente llegue el periodo."
   - Retardo.retardom()
-  - say "3.- Consultar los posibles días fertiles del ciclo." #este aún falta poder usar las fechas e investigación
+  - say "4.- Consultar los posibles días fertiles del ciclo." #este aún falta poder usar las fechas e investigación
   - Retardo.retardom()
-  - input menuseg | asign 1:uno Registrar:uno 2:dos proximo:dos 3:tres fertiles:tres
-  - if menuseg == "uno" then solve metodos
-  - if menuseg == "dos" then solve proximoDia
-  - if menuseg == "tres" then solve diasFertil
+  - input menuseg | asign 1:uno Registrar:uno 2:dos programar:dos 3:tres proximo:tres 4:cuatro fertiles:cuatro
+  - if menuseg == "uno" then solve Registo
+  - if menuseg == "dos" then solve metodos
+  - if menuseg == "tres" then solve proximoDia
+  - if menuseg == "cuatro" then solve diasFertil
 
 
 

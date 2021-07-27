@@ -1,0 +1,19 @@
+#Registro del día en el que comienza el periodo.
+
+plugins:
+    - Retardo
+    - limpiar_pantalla
+    - Registro_P
+strategies:
+    primerDia:
+        - say "He guardado la fecha de hoy como el comienzo de tu periodo."
+        - Registro_P.guardarDia()
+    otroDia:
+        - say "aún no está :C"  
+script:
+    - limpiar_pantalla.limpiarP()
+    - Retardo.retardom()
+    - say "¿Hoy es el primer día de tu periodo?"
+    - input diaP | asign si:sip no:nop
+    - if diaP == "sip" then solve primerDia
+    - if diaP == "nop" then solve otroDia
