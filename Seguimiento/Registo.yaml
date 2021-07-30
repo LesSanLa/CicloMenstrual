@@ -9,7 +9,12 @@ strategies:
         - say "He guardado la fecha de hoy como el comienzo de tu periodo."
         - Registro_P.guardarDia()
     otroDia:
-        - say "aún no está :C"  
+        - say "Por favor ingresa hace cuantos días empezó tu periodo (solo el número)"
+        - Retardo.retardom()
+        - say "O ingresa la fecha en el formato Dia/Mes/Año"
+        - input otroDia
+        - Registro_P.diaDif(otroDia)
+        - say "He guardado la fecha con exito"
 script:
     - limpiar_pantalla.limpiarP()
     - Retardo.retardom()
