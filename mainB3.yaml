@@ -17,18 +17,25 @@ conversations:
 plugins:
     - Retardo
     - limpiar_pantalla
+    - ultimoP
 
 slots:
     - name
     - metHab
     - duraP
+    - ultiP
 #    - durac
 strategies:
     name:
-        - say "¿cúal es tu nombre?"
+        - say "Hola, Soy Amalia"
+        - say "Desde hoy seré tu asistente para el seguimiento de tu ciclo menstrual"
+        - Retardo.retardob()
+        - say "Primero, reuniremos algunos datos para empezar." 
+        - Retardo.retardob()
+        - say "¿Me puedes decir cúal es tu nombre?"
         - input name
         - remember name
-        - say "mucho gusto en conocerte"
+        - say "mucho gusto en conocerte {}". format(name)
     metHab:
 #preguntar metodo habitual
         - say "¿Cuál es tu metodo habitual?,escribe alguno de los siguientes:"
@@ -43,7 +50,8 @@ strategies:
         - Retardo.retardob()
         - input metHab
         - remember metHab
-        - say "Lo anotaré, tu metodo habitual es {}".format(metHab)
+        - say "Muchas gracias anotaré que tu metodo habitual es {}".format(metHab)
+
     duraP:
 #Duracion del periodo
         - say "¿Cuántos días dura tu periodo?"
@@ -58,9 +66,23 @@ strategies:
 #        - remeber durac
 #        - if a == "no" then say "No te preocupes lo iré calculando."
 #metodos provicionales 
-    seguimientoDePeriodo:
+    ultiP:
 #fecha del ultimo periodo
-        - say "Sección de fechas para de ultimo periodo"
+        - say "Ingresa la fecha de la siguiente forma Dia/mes/año, DD/MM/AAA"
+        - input ultiP
+       # - say "¿Estas segura de la fecha?"
+        #- input SiNo | asign si:sip no:nop
+        #- if SiNo == nop then solve ultiP
+        #- if SiNo == si then stop 
+        - remember ultiP
+        - ultimoP.registroF(ultiP)
+        - say "Muchas gracias por la información."
+        - Retardo.retardob()
+
+
+    UltN:
+        - say "No pasa nada, conforme registres los inicios de tus periodos se dará información."
+
     informacionYrecomendaciones:
         - say "¡eeehhh! entraste a informacionYrecomendaciones."
     Malestar:
@@ -76,22 +98,19 @@ script:
     - Retardo.retardom()
     - say "--------------MENÚ PRINCIPAL--------------"
     - say "Te enlistaré las opciones que tengo para el seguimiento de tu periodo."
-    - Retardo.retardom()
+    - Retardo.retardob()
     - say "Por favor escoge la opcion a la que quieras entrar {}".format(name)
-    - Retardo.retardom()
+    - Retardo.retardob()
     - say "1.- Seguimiento de ciclo menstrual."
-    - Retardo.retardom()
+    - Retardo.retardob()
     - say "2.- Malestares, SPM o durante el periodo."
-    - Retardo.retardom()
+    - Retardo.retardob()
     - say "3.- Información sobre el ciclo mentrual y recomendaciones."
-    - Retardo.retardom()
+    - Retardo.retardob()
     - say "4.- Información sobre retraso del periodo."
-    - Retardo.retardom()
-    - say "5.- Registrar periodos pasados (temporal)." #temporal porque se debe preguntar en un inicio,
-    #Prueba para que escoja alguna opción
+    - Retardo.retardob()
     - input menu | asign 1:uno seguimiento:uno 2:dos malestar:dos 3:tres Información:tres 4:cuatro retraso:cuatro 5:cinco Registrar:cinco
     - if menu == "uno" then solve Seguimiento
     - if menu == "dos" then solve Malestar
     - if menu == "tres" then solve informacionYrecomendaciones
     - if menu == "cuatro" then solve retraso
-    - if menu == "cinco" then solve seguimientoDePeriodo
