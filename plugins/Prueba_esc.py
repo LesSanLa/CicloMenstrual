@@ -2,7 +2,8 @@
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
-dia = input("ingresa el dia o numero:")
+#prueba de fechas
+'''dia = input("ingresa el dia o numero:")
 lon = len(dia)
 if(lon<=2):
 	dia=int(dia)
@@ -26,4 +27,27 @@ if(lon>2):
 	day = datetime.now()
 	dif= (day-new_date).days
 	print("dias {}".format(dif))
-
+'''
+#prueba de hacer diferencia de dias 
+f = open("/home/mayte/Desktop/ServicioSocial/CicloMenstrual/Fechas.txt",'r')
+for linea in f:
+    fecha = str(linea)
+#print(fecha)
+fechaS = fecha.split(',')
+num = len(fechaS)
+#print(num)
+ultF = fechaS[num-2]#es -2 porque uno es del espacio y otro de los lugares que manejan las listas
+#print(ultF)
+fsep = ultF.split('-')
+#for i in range(len(fsep)):
+#		print(fsep[i])
+dia = int(fsep[2])
+mes = int(fsep[1])
+anio = int(fsep[0])
+#creando una fecha con el string
+new_date = datetime(anio,mes,dia)
+print(new_date)
+today= datetime.now()
+ciclo = (today-new_date).days
+print("duracion del ciclo {}".format(ciclo))
+f.close()

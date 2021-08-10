@@ -12,6 +12,7 @@ conversations:
     - 'Metodos/tampon.yaml'
     - 'Seguimiento/Seguimiento.yaml'
     - 'Seguimiento/Registo.yaml'
+    - 'Seguimiento/Proximo.yaml'
   # - 'Malestar/malestar.yaml'#están comentados porque malestar no está en el yaml
    # - 'PPast/ppast.yaml'
 plugins:
@@ -68,7 +69,8 @@ strategies:
 #metodos provicionales 
     ultiP:
 #fecha del ultimo periodo
-        - say "Ingresa la fecha de la siguiente forma Dia/mes/año, DD/MM/AAA"
+        - say "Me podrias dar la fecha de tu último periodo?"
+        - say "Por favor ingresa la fecha de la siguiente forma Dia/mes/año, DD/MM/AAA"
         - input ultiP
        # - say "¿Estas segura de la fecha?"
         #- input SiNo | asign si:sip no:nop
@@ -99,7 +101,7 @@ script:
     - say "--------------MENÚ PRINCIPAL--------------"
     - say "Te enlistaré las opciones que tengo para el seguimiento de tu periodo."
     - Retardo.retardob()
-    - say "Por favor escoge la opcion a la que quieras entrar {}".format(name)
+    - say "Por favor {} escoge la opcion a la que quieras entrar".format(name)
     - Retardo.retardob()
     - say "1.- Seguimiento de ciclo menstrual."
     - Retardo.retardob()

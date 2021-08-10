@@ -47,3 +47,6 @@ script:
     - if flujo == "abu" then solve abundanteC
     - if flujo == "med" then solve medioC
     - if flujo == "perd" then solve perdidasC
+    - say "Regresaré al menú de seguimiento por si necesitas hacer otra cosa."
+    - Retardo.retardoc()
+    - solve Seguimiento

@@ -15,6 +15,7 @@ strategies:
         - input otroDia
         - Registro_P.diaDif(otroDia)
         - say "He guardado la fecha con exito"
+        - Retardo.retardob()
 script:
     - limpiar_pantalla.limpiarP()
     - Retardo.retardom()
@@ -22,3 +23,6 @@ script:
     - input diaP | asign si:sip no:nop
     - if diaP == "sip" then solve primerDia
     - if diaP == "nop" then solve otroDia
+    - say "Regresaré al menú de seguimiento por si quieres hacer otra cosa."
+    - Retardo.retardoc()
+    - solve Seguimiento

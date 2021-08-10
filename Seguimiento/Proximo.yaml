@@ -1,0 +1,7 @@
+#yaml para consultar los dias proximos
+plugins:
+    - Retardo
+    - limpiar_pantalla
+script:
+    - limpiar_pantalla.limpiarP()
+    - Retardo.retardom()
