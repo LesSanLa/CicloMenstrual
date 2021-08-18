@@ -8,7 +8,7 @@ strategies:
     metodoHabitual:
         - otenerMet.metodoHabitual()
 
-    cambioMetodo: #estrategia para que la ususaria pueda poner una alarma diferente
+    cambioMetodo: #estrategia para que la usuaria pueda poner una alarma diferente
         - limpiar_pantalla.limpiarP()
         - say "¿Qué método estas usando hoy?"
         - say 'Escoge alguna opción'

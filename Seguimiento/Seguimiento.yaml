@@ -10,7 +10,7 @@ strategies:
         - say "holi, aún no tenemos los días fertiles :C"
 script: 
   - limpiar_pantalla.limpiarP()
-  - say "-----------Bienvenida al seguimiento del tu ciclo-----------"
+  - say "-----------Bienvenida al seguimiento de tu ciclo-----------"
   - Retardo.retardom()
   - say "Aquí hay algunas cosas que podemos hacer el día de hoy:"
   - Retardo.retardom()
