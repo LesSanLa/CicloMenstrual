@@ -51,3 +51,8 @@ today= datetime.now()
 ciclo = (today-new_date).days
 print("duracion del ciclo {}".format(ciclo))
 f.close()
+f = open("/home/mayte/Desktop/ServicioSocial/CicloMenstrual/Duracion.txt",'a')
+f.write(str(ciclo))
+f.write(",")
+    #print("duracion del ciclo {}".format(ciclo))
+f.close()
