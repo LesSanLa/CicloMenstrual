@@ -5,6 +5,7 @@ settings:
 
 conversations:
     - 'hello.yaml'
+    - 'bye.yaml'
     - 'Metodos/metodos.yaml'
     - 'Metodos/copaM.yaml'
     - 'Metodos/tEcolo.yaml'
@@ -116,3 +117,4 @@ script:
     - if menu == "dos" then solve Malestar
     - if menu == "tres" then solve informacionYrecomendaciones
     - if menu == "cuatro" then solve retraso
+    - solve bye

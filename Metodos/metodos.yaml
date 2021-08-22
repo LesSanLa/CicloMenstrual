@@ -7,6 +7,10 @@ strategies:
 
     metodoHabitual:
         - otenerMet.metodoHabitual()
+        - say "¿Te gustaría ver otra cosa?"
+        - input ans | asign si:yes no:not
+        - if ans == "yes" then say "Para acceder al menu principal vuelve a correr el chatbot" 
+        - if ans == "not" then say "Nos vemos."
 
     cambioMetodo: #estrategia para que la usuaria pueda poner una alarma diferente
         - limpiar_pantalla.limpiarP()
