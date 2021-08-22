@@ -38,9 +38,10 @@ strategies:
         - horas_metodos.tam_Perdidas(perdTam)
         #-ALARMA
     sst:
-        - say "El {} {}".format(*db['main'][0])
-        - say "Los primeros casos estaban ligados al uso de tampones superabsorventes y su mal uso durante los periodos menstruales."
-        - say "Actualmente tenemos mejores tampones y hábitos de uso."
+        - say "Para correr esta parte falta agregar el .csv al main grandote"
+#        - say "El {} {}".format(*db['main'][0])
+#        - say "Los primeros casos estaban ligados al uso de tampones superabsorventes y su mal uso durante los periodos menstruales."
+#        - say "Actualmente tenemos mejores tampones y hábitos de uso."
 #    recomendations:
 #        - solve recomTampon
 #        - say greeting

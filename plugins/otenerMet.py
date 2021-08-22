@@ -5,7 +5,7 @@ import json
 def metodoHabitual():
 
 	#abrimos el fichero
-	f = open("/home/mayte/Desktop/ServicioSocial/CicloMenstrual/conversations/cicloMenstrual/is.json","r")
+	f = open("/home/ximena/ServicioSocial/ChatBotLesly/CicloMenstrual/is.json","r")
 	#leemos los datos del fichero
 	datos = f.read()
 	#decodificación de json

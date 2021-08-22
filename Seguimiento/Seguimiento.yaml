@@ -9,6 +9,7 @@ strategies:
     diasFertil:
         - say "holi, aún no tenemos los días fertiles :C"
 script: 
+<<<<<<< HEAD
   - limpiar_pantalla.limpiarP()
   - say "-----------Bienvenida al seguimiento del tu ciclo-----------"
   - Retardo.retardom()
@@ -30,6 +31,30 @@ script:
   - if menuseg == "tres" then solve proximoDia
   - if menuseg == "cuatro" then solve diasFertil
   #- if menuseg == "cinco" then solve mainB3
+=======
+   - limpiar_pantalla.limpiarP()
+   - say "-----------Bienvenida al seguimiento de tu ciclo-----------"
+   - Retardo.retardom()
+   - say "Aquí hay algunas cosas que podemos hacer el día de hoy:"
+   - Retardo.retardom()
+   - say "1.- Registrar el comienzo de tu periodo."
+   - Retardo.retardom()
+   - say "2.- Programar alarmas para el cambio de tu metodo"
+   - Retardo.retardom()
+   - say "3.- Consultar el proximo día en el que posiblemente llegue el periodo."
+   - Retardo.retardom()
+   - say "4.- Consultar los posibles días fertiles del ciclo." #este aún falta poder usar las fechas e investigación
+   - Retardo.retardom()
+   - say "5.- Regresar al menú principal"
+   - Retardo.retardom()
+   - input menuseg | asign 1:uno Registrar:uno 2:dos programar:dos 3:tres proximo:tres 4:cuatro fertiles:cuatro 5:cinco principal:cinco
+   - if menuseg == "uno" then solve Registo
+   - if menuseg == "dos" then solve metodos
+   - if menuseg == "tres" then solve proximoDia
+   - if menuseg == "cuatro" then solve diasFertil
+   - if menuseg == "cinco" then say "Para acceder al menu principal vuelve a correr el chatbot"
+  
+>>>>>>> 5b0eb3bbeaee04102c791cbae84e713f75906da8
 
 
 

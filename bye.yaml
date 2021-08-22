@@ -1,0 +1,8 @@
+# Conversation example for simple hello
+
+plugins:
+    - random_greeting2
+
+script:
+    - set_slot options ["Adios.",'Sigue cuidandote']
+    - random_greeting2.execute('greeting',options)
