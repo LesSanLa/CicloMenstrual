@@ -7,7 +7,7 @@ def guardarDia(): #menstruaste el dia de hoy
     # para dar la fecha de forma mas amigable
     today = date.today() #la fecha es: año-mes-dia todo con numeros
 	#abrimos el fichero
-    #f = open("conversations/cicloMenstrual/is.json","r")
+    f = open("conversations/cicloMenstrual/is.json","r")
     #f = open("/home/ximena/ServicioSocial/ChatBotLesly/CicloMenstrual/is.json","r")
 	#leemos los datos del fichero
     datos = f.read()
@@ -58,7 +58,7 @@ def diaDif(*args):
     meses =["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
     numD = str(args[0]) #obtenemos dia o fecha
     lon = len(numD)
-    #f = open("conversations/cicloMenstrual/is.json","r")
+    f = open("conversations/cicloMenstrual/is.json","r")
     #f = open("/home/ximena/ServicioSocial/ChatBotLesly/CicloMenstrual/is.json","r")
     #leemos los datos del fichero
     datos = f.read()
