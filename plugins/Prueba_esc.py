@@ -2,6 +2,7 @@
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
+import math
 #prueba de fechas
 '''dia = input("ingresa el dia o numero:")
 lon = len(dia)
@@ -27,6 +28,7 @@ if(lon>2):
 	day = datetime.now()
 	dif= (day-new_date).days
 	print("dias {}".format(dif))
+'''
 '''
 #prueba de hacer diferencia de dias 
 f = open("/home/mayte/Desktop/ServicioSocial/CicloMenstrual/Fechas.txt",'r')
@@ -56,3 +58,34 @@ f.write(str(ciclo))
 f.write(",")
     #print("duracion del ciclo {}".format(ciclo))
 f.close()
+'''
+
+##-------------- prueba para los proximos dias------------
+f = open("/home/mayte/Desktop/ServicioSocial/CicloMenstrual/Duracion.txt",'r')
+for linea in f:
+    duracion = str(linea)
+print(duracion)
+duracioS = duracion.split(',')
+suma = 0
+for i in range(len(duracioS)-1):
+	num = int(duracioS[i])
+	suma = suma + num
+print (suma)
+ 
+peri = round(suma/(len(duracioS)-1))
+print(peri)
+f = open ("/home/mayte/Desktop/ServicioSocial/CicloMenstrual/Fechas.txt",'r')
+for linea in f:
+    fecha = str(linea)
+fechaS = fecha.split(',')
+num = len(fechaS)
+ultF = fechaS[-2]#es -2 porque uno es del espacio y otro de los lugares que manejan las listas
+fsep = ultF.split('-')
+f.close()
+dia = int(fsep[2])
+mes = int(fsep[1])
+anio = int(fsep[0])
+    #creando una fecha con el string
+new_date1 = datetime(anio,mes,dia)
+proximo = new_date1 + timedelta(days = peri)
+print (proximo.day)

@@ -2,6 +2,12 @@
 plugins:
     - Retardo
     - limpiar_pantalla
+    - proximos
 script:
     - limpiar_pantalla.limpiarP()
+    - say "En un momento te daré la fecha en la que puede llegar tu periodo."
     - Retardo.retardom()
+    - proximos.diaP()
+    - Retardo.retardom()
+    - say "Te enviaré al menú anterior por si quieres hacer algo más"
+    - solve Seguimiento

@@ -4,8 +4,6 @@ plugins:
     - Retardo
     - limpiar_pantalla
 strategies:
-    proximoDia:
-        - say "holi, aún no estan los dias proximos"
     diasFertil:
         - say "holi, aún no tenemos los días fertiles :C"
 script: 
@@ -28,7 +26,7 @@ script:
   - input menuseg | asign 1:uno Registrar:uno 2:dos programar:dos 3:tres proximo:tres 4:cuatro fertiles:cuatro 5:cinco principal:cinco
   - if menuseg == "uno" then solve Registo
   - if menuseg == "dos" then solve metodos
-  - if menuseg == "tres" then solve proximoDia
+  - if menuseg == "tres" then solve Proximo
   - if menuseg == "cuatro" then solve diasFertil
   - if menuseg == "cinco" then say "Para acceder al menu principal vuelve a correr el chatbot"
  
