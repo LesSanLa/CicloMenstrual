@@ -10,4 +10,5 @@ script:
     - proximos.diaP()
     - Retardo.retardom()
     - say "Te enviaré al menú anterior por si quieres hacer algo más"
+    - Retardo.retardoO()
     - solve Seguimiento
